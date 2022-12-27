@@ -13,7 +13,6 @@
       :pagination="pagination"
       :showHeader="showHeader"
       @page-change="onPageChange"
-      @page-size-change="curChange"
       cellEmptyContent="-"
     ></t-table>
   </t-space>
@@ -62,8 +61,11 @@ export default {
         current: 2,
         pageSize: 5,
         total,
-        currentChange: function () {
+        onCurrentChange: () => {
           console.log('345');
+        },
+        onPageSizeChange: () => {
+          console.log('788');
         },
       },
     };
@@ -73,9 +75,6 @@ export default {
       this.pagination.current = pageInfo.current;
       this.pagination.pageSize = pageInfo.pageSize;
       console.log('123', pageInfo, newDataSource);
-    },
-    curChange() {
-      console.log('444');
     },
   },
 };
