@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "tdesign-icons-vue": "^0.1.4",
-    "tdesign-vue": "0.49.1",
+    "tdesign-vue": "1.0.1",
     "vue": "~2.6.14"
   },
   "devDependencies": {

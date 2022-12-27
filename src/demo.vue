@@ -19,12 +19,11 @@
 </template>
 <script lang="jsx">
 const data = [];
-const total = 15;
+const total = 9;
 for (let i = 0; i < total; i++) {
   data.push({
     index: i,
-    platform: i % 2 === 0 ? '共有' : '私有',
-    type: ['String', 'Number', 'Array', 'Object'][i % 4],
+    platform: i > 4 ? '共有' : '私有',
   });
 }
 export default {
@@ -50,11 +49,6 @@ export default {
           colKey: 'platform',
           title: '平台',
         },
-        {
-          colKey: 'type',
-          title: '类型',
-          width: 100,
-        },
       ],
       /** 非受控用法：与分页组件对齐 */
       pagination: {
@@ -74,7 +68,7 @@ export default {
     onPageChange(pageInfo, newDataSource) {
       this.pagination.current = pageInfo.current;
       this.pagination.pageSize = pageInfo.pageSize;
-      console.log('123', pageInfo, newDataSource);
+      console.log('pageChange', pageInfo, newDataSource);
     },
   },
 };
