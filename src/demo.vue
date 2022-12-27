@@ -12,6 +12,8 @@
       :table-layout="tableLayout ? 'auto' : 'fixed'"
       :pagination="pagination"
       :showHeader="showHeader"
+      @page-change="onPageChange"
+      @page-size-change="curChange"
       cellEmptyContent="-"
     ></t-table>
   </t-space>
@@ -58,10 +60,23 @@ export default {
       /** 非受控用法：与分页组件对齐 */
       pagination: {
         current: 2,
-        defaultPageSize: 5,
+        pageSize: 5,
         total,
+        currentChange: function () {
+          console.log('345');
+        },
       },
     };
+  },
+  methods: {
+    onPageChange(pageInfo, newDataSource) {
+      this.pagination.current = pageInfo.current;
+      this.pagination.pageSize = pageInfo.pageSize;
+      console.log('123', pageInfo, newDataSource);
+    },
+    curChange() {
+      console.log('444');
+    },
   },
 };
 </script>
